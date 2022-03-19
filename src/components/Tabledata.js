@@ -15,19 +15,19 @@ function Tabledata() {
       attendance: "71%",
     },
     {
-      id: "LPR-14786450",
+      id: "LPR-14786451",
       name: "John Doe",
       address: "175, 5th main road, Vinayak layout, New York ",
       attendance: "71%",
     },
     {
-      id: "LPR-14786450",
+      id: "LPR-14786452",
       name: "John Doe",
       address: "175, 5th main road, Vinayak layout, New York ",
       attendance: "71%",
     },
     {
-      id: "LPR-14786450",
+      id: "LPR-14786453",
       name: "John Doe",
       address: "175, 5th main road, Vinayak layout, New York ",
       attendance: "71%",
@@ -85,22 +85,22 @@ function Tabledata() {
     },
   ];
 
-  const onAddStudent = () => {
-    const randomNumber = parseInt(Math.random() * 1000);
-    const newStudent = {
-      id: randomNumber,
-      name: "Name " + randomNumber,
+  // const onAddStudent = () => {
+  //   const randomNumber = parseInt(Math.random() * 1000);
+  //   const newStudent = {
+  //     id: randomNumber,
+  //     name: "Name " + randomNumber,
       
-      address: "Address " + randomNumber,
-      attendance: randomNumber + "%",
-    };
-    setDataSource((pre) => {
-      return [...pre, newStudent];
-    });
-  };
+  //     address: "Address " + randomNumber,
+  //     attendance: randomNumber + "%",
+  //   };
+  //   setDataSource((pre) => {
+  //     return [...pre, newStudent];
+  //   });
+  // };
   const onDeleteStudent = (record) => {
     Modal.confirm({
-      title: "Are you sure, you want to delete this student record?",
+      title: "Are you sure, you want to delete this record?",
       okText: "Yes",
       okType: "danger",
       onOk: () => {
@@ -122,8 +122,8 @@ function Tabledata() {
     <div className="App">
       <header className="App-header">
         <h4>User List</h4>
-        <Button onClick={onAddStudent}>Add a new Student</Button>
-        <Table columns={columns} dataSource={dataSource}></Table>
+        {/* <Button onClick={onAddStudent}>Add a new Record</Button>*/}
+        <Table columns={columns} dataSource={dataSource}></Table> 
         <Modal
           title="Edit Student"
           visible={isEditing}
@@ -153,15 +153,15 @@ function Tabledata() {
             }}
           />
           <Input
-            value={editingStudent?.email}
+            value={editingStudent?.address}
             onChange={(e) => {
               setEditingStudent((pre) => {
-                return { ...pre, adress: e.target.value };
+                return { ...pre, address: e.target.value };
               });
             }}
           />
           <Input
-            value={editingStudent?.address}
+            value={editingStudent?.attendance}
             onChange={(e) => {
               setEditingStudent((pre) => {
                 return { ...pre, attendance: e.target.value };
